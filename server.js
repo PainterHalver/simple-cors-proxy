@@ -7,8 +7,11 @@ const cors = require("cors");
 const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(cors());
-app.options("*", cors());
+let corsOptions = {
+  origin: "*",
+};
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 axios.defaults.timeout = 5000;
 
 const port = process.env.PORT || 5000;
