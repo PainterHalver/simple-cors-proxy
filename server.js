@@ -38,7 +38,7 @@ app.all("/*", async function (req, res, next) {
       headers: { "Content-Type": "application/json" },
     });
     const { data } = response;
-    res.status(200).json(data);
+    res.status(200).send(data);
   } catch (error) {
     if (error.errno === -4078) {
       res.status(500).json({
